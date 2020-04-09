@@ -47,6 +47,11 @@
 
 Most algorithms seem to be doing variants of the same general algorithm. I think it is a good exercise for me to go through some of these papers and explain how they related to each other in the context of probabilistic modeling. The goal is to clearly outline the relationships among these different algorithms to more clearly see a way to contribute to this area.
 
+% table comparing methods in papers. for example, organize the more recent publications on the clothing1m dataset into a table
+% identify the top noisy label/label smoothing papers
+% graphconv + knn + update (main idea); run a simple algorithm on mnist
+% 
+
 \vspace{2cm}
 \noindent Some take-aways from reading papers thus far
 \begin{itemize}
@@ -73,6 +78,7 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \noindent Url: \url{https://arxiv.org/pdf/1906.00189.pdf}
 
 \begin{itemize}
+   \item Risk and Classification statistically consistent methods rely on transition matrices. 
    \item Existing theories have shown that the transition matrix can be learned by exploiting anchor points
    \item when there are no anchor points, the transition matrix will be poorly learned
    \item without employing anchor points, we propose a transition-revision (T-Revision) method to effectively learn transition matrices
@@ -136,6 +142,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
   \item We further adapt mixup augmentation to drive our approach a step further; mixing two classes in raw pixel space
 \end{itemize}
 
+\vspace{2cm}\noindent {\bf How does Disagreement Help Generalization against Label Corruption?}
+
+\noindent ICML 2019
+
+\noindent Citations: 18
+
 \vspace{2cm}\noindent {\bf Learning to Learn from Noisy Labeled Data}
 
 \noindent CVPR 2019
@@ -198,6 +210,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
   \item only estimate unmasked noise transition probabilities and the burden of estimation is tremendously reduced
 \end{itemize}
 
+\vspace{2cm}\noindent {\bf Robust training of deep neural networks with extremely noisy labels.}
+
+\noindent NeurIPs 2018
+
+\noindent Citations: 130
+
 \vspace{2cm}\noindent {\bf Using Trusted Data to Train Deep Networks on Labels Corrupted by Severe Noise}
 
 \noindent NeurIPs 2018
@@ -242,6 +260,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item Use direct optimization to learn join of $p(\hat{y},y|x)$ from Misera 2015.
 \end{itemize}
 
+\vspace{2cm}\noindent{\bf Masking: A new perspective of noisy supervision.}
+
+\noindent NeurIPs 2018
+
+\noindent Citations: 30
+
 \vspace{2cm}\noindent {\bf Learning to Reweight Examples for Robust Deep Learning}
 
 \noindent ICML 2018
@@ -261,6 +285,15 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item They use the same latent space representation of the real label as I do
 \end{itemize}
 
+\vspace{2cm}\noindent {\bf MentorNet: Learning Data-Driven Curriculum for Very Deep Neural Networks on Corrupted Labels}
+
+\noindent ICML 2018
+
+\noindent Citations: 189
+
+\noindent Tags:
+
+
 \vspace{2cm}\noindent {\bf Dimensionality-Driven Learning with Noisy Labels}
 
 \noindent ICML 2018
@@ -274,6 +307,18 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item from a dimensionality perspective, DNNs exhibit quite distinctive learning styles when trained with clean labels versus when trained with a proportion of noisy labels
 \item a new dimensionality-driven learning strategy, which monitors the dimensionality of subspaces during training and adapts the loss function accordingly
 \end{itemize}
+
+\vspace{2cm}\noindent {\bf Learning with biased complementary labels}
+
+\noindent ICCV/ECCV 2018
+
+\noindent Citations: 47
+
+\vspace{2cm}\noindent {\bf Curriculumnet: Weakly supervised learning from large-scale web images.}
+
+\noindent ICCV/ECCV 2018
+
+\noindent Citations: 26
 
 \vspace{2cm}\noindent {\bf Exploring the Limits of Weakly Supervised Pretraining}
 
@@ -327,6 +372,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item even with only one annotation per example, our algorithm can estimate worker quality.
 \end{itemize}
 
+\vspace{2cm}\noindent {\bf Robust active label correction}
+
+\noindent AISTAT 2018
+
+\noindent Citations: 5
+
 \vspace{2cm}\noindent {\bf Joint Optimization Framework for Learning With Noisy Labels}
 
 \noindent CVPR 2018
@@ -372,6 +423,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \noindent NeurIPs 2017
 
 \noindent Citations: 63
+
+\vspace{2cm}\noindent {\bf Learning from noisy labels with distillation.}
+
+\noindent ICCV/ECCV 2017
+
+\noindent Citations: 147
 
 \vspace{2cm}\noindent {\bf Revisiting Unreasonable Effectiveness of Data in Deep Learning Era}
 
@@ -480,7 +537,7 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 
 \vspace{2cm}\noindent {\bf Classification With Noisy Labels By Importance Reweighting}
 
-\noindent IPAM 2015
+\noindent IPAM 2016
 
 \noindent Citations: 327
 
@@ -502,6 +559,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item consider a prediction consistent if the same prediction is made given similar percepts, where the notion of similarity is between deep network features computed from the input data.
 \item we add a regularization term encouraging the class prediction to be perceptually consistent.
 \end{itemize}
+
+\vspace{2cm}\noindent {\bf  Learning with noisy labels.}
+
+\noindent NeurIPs 2013
+
+\noindent Citations: 483
 
 \vspace{2cm}\noindent {\bf A Modification on K-Nearest Neighbor Classifier}
 
@@ -532,5 +595,12 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item this paper uses a kernel and doubly-stochastic laplacian graph matrix of the raw data input. then it runs an update step to find $F^* = (1 - \alpha)(I - \alpha S)^{-1}Y$, with $F$ the model output, $Y$ the labels, and $S$ the doubly-stochastic laplacian graph.
 \item Bengio shows smoothness in high-dimensions is ``not really helpful''... I should read it more carefully. Reference is here: \href{http://cseweb.ucsd.edu/~gary/cs200/s12/bengio-lecun-07.pdf}{url}.
 \end{itemize}
+
+
+\vspace{2cm} \noindent{\bf  Robustness properties of k means and trimmed k means}
+
+\noindent Journal of the American Statistical Association, 
+
+\noindent Citations: 164
 
 \end{document}
