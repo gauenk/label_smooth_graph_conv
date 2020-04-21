@@ -56,7 +56,7 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \noindent Some take-aways from reading papers thus far
 \begin{itemize}
 \item It seems that utilizing information during the learning process is a younger/current research area with some room to publish. That seems promising for us using GraphConvolution to regularize the deep learning model
-\item 
+\item I think using GraphConv to regularize the loss function would be analogous to some type of ``perceptual loss'' function people use currently. I think we would have to compare to ``regularized classification'' methods as well, rather than just ``noisy labels'' papers. I think it is \emph{very popular} to use the final representations of a neural network to inform some part of learning or testing. I think we need to widen the related literature scope to understand if we are calling ``noisy labels'' by the wronge name; e.g. simply training to find good representations implies we perform the same algorihm as our proposed one. This means we would taking PAPER X's algorithm (ALG X) and applying it to ``noisy labels'' (APPLICATION Y) and our contribution would be limited to (i) identifying ALG X can be applied to APPLICATION Y and (ii) maybe providing some justifiction for such appilcations. Is this enough of a paper? This seems weak to me.
 \end{itemize}
 
 \vspace{2cm}
@@ -66,8 +66,21 @@ Most algorithms seem to be doing variants of the same general algorithm. I think
 \item Understand how collaborative filtering relates to markov random fields
 \end{itemize}
 
-\newpage
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\linewidth]{cvpr2019_learning_to_learn_w_noisy_data}
+  \caption{Clothing 1M Result from cvpr2019 ``learning to learn with noisy data''. Ref 24 is cvpr2018 ``Joint optimization framework for learning with noisy labels.'' Ref 16 is cvpr 2017 ``Making deep neural networks robust to label noise: A loss correction approach.''}
+\end{figure}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{neurips2019_anchor_points}
+  \caption{Clothing 1M Result from neurips2019 ``Are Anchor Points Really Indispensable in Label-Noise Learning?''. neurips 2018 ``Decoupling'' = ``Decoupling "when to update" from "how to update"... }
+\end{figure}
+
+
+\clearpage
+\newpage
 \section{References}
 \noindent {\bf Are Anchor Points Really Indispensable in Label-Noise Learning?}
 
